@@ -4,6 +4,11 @@
 // double abs(double Var);
 double sgn(double Var);
 /*Drive vars*/
+
+extern bool readyToPunch;
+extern bool firstUp;
+extern bool flyAtSpeed;
+
 extern bool MechDriveRampingEnabled;
 
 extern bool DriveLockConBtnPressed;

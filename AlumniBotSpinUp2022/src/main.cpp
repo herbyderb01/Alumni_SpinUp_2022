@@ -16,6 +16,7 @@
 #include "N_Custom/declars/Aton/Routines.hpp"
 
 #include "N_Custom/declars/Displays/AtonDisplay.hpp"
+#include "pros/adi.h"
 
 
 /**
@@ -41,6 +42,9 @@ void on_center_button() {
  * to keep execution time for this mode under a few seconds.
  */
 void initialize() {
+
+  Puncher::PuncherPiston.set_value(LOW);
+
   //Sets the Drive Brake type for the Drive Motors
   Drive::LeftFMotor.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
   Drive::LeftBMotor.setBrakeMode(okapi::AbstractMotor::brakeMode::coast);
@@ -54,7 +58,7 @@ void initialize() {
   //Sets the Drive Brake type for the Drive Motors
   Roller::RollerMotor.setBrakeMode(okapi::AbstractMotor::brakeMode::hold);
   //Sets the Drive Brake type for the Drive Motors
-  //Loader::LoadMotor.setBrakeMode(okapi::AbstractMotor::brakeMode::brake);
+  Loader::LoaderMotor.setBrakeMode(okapi::AbstractMotor::brakeMode::hold);
 
   //Initalizes all the Motors encoder position to 0
   Drive::LeftFMotor.tarePosition();
@@ -62,7 +66,7 @@ void initialize() {
   Drive::RightFMotor.tarePosition();
   Drive::RightBMotor.tarePosition();
 
-  //Loader::LoadMotor.tarePosition();
+  Loader::LoaderMotor.tarePosition();
   Roller::RollerMotor.tarePosition();
 
   //Starts the AtonDisplayTask to see which Atonomous routine to run
@@ -139,20 +143,19 @@ void opcontrol() {
 	AutoIntakeTaskEnabled=false;
 	AutoFlyWheelEnabled=false;
 
-	//pros::Task AutoLoaderTask (Loader::LoaderManualContTask);
-	pros::Task AutoPunchTask (Puncher::PuncherManualContTask);
+	//pros::Task AutoPunchTask (Puncher::PuncherManualContTask);
 
 	//starts User Controll while loop
   //pros::ADIDigitalOut a('A');
   //pros::ADIDigitalOut b('B');
 	while (true) {
-        // a.set_value(LOW);
-		   /* Puncher::PuncherPiston.set_value(LOW);
-		    Loader::LoaderPiston.set_value(LOW);
+      /*  // a.set_value(LOW);
+		    Puncher::PuncherPiston.set_value(LOW);
+		    //Loader::LoaderPiston.set_value(LOW);
         std::cout << "low" << std::endl;
     		pros::delay(1000);
     		Puncher::PuncherPiston.set_value(HIGH);
-    		Loader::LoaderPiston.set_value(HIGH);
+    		//Loader::LoaderPiston.set_value(HIGH);
         // a.set_value(HIGH);
         std::cout << "high" << std::endl;
         pros::delay(1000);
@@ -162,6 +165,7 @@ void opcontrol() {
 		Intake::intakeControll();
 		Roller::RollerManualCont();
 		Loader::LoaderManualContTask();
+    Puncher::PuncherManualContTask();
 
 		pros::delay(20);
 	}

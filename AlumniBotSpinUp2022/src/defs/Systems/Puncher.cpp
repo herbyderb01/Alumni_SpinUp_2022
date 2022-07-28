@@ -1,16 +1,15 @@
+#include "N_Custom/declars/vars.hpp"
 #include "main.h"
 #include "N_Custom\declars\Systems\Puncher.hpp"
 
 namespace Puncher{ //Inside Puncher namespace
 //Functoin for Puncher Manual Controll
-  void PuncherManualContTask(void*PuncherFunctionTask){ 
-    bool DoneFiring = false;
-    if(Fire.isPressed() && DoneFiring) {
+  void PuncherManualContTask(/*void*PuncherFunctionTask*/){ 
+    if(Fire.isPressed()) {
       std::cout << "pressed" << std::endl;
-      DoneFiring = false;
-      Punch();
-      DoneFiring = true;
+      //while (!readyToPunch && !flyAtSpeed && !firstUp){std::cout << "waiting to fire" << std::endl;}
+      if(!firstUp && readyToPunch) Punch();
     }
-    std::cout << "running" << std::endl;
+    //std::cout << "running" << std::endl;
   }
 }

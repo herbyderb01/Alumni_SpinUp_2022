@@ -59,8 +59,11 @@ namespace Loader{
 namespace Puncher{
   void Punch(){
     PuncherPiston.set_value(HIGH);
-    pros::delay(500);
+    std::cout << "High" << std::endl;
+    std::cout << "FIRE" << std::endl;
+    pros::delay(300);
     PuncherPiston.set_value(LOW);
+    std::cout << "Low" << std::endl;
   }
 }
 

@@ -37,8 +37,8 @@ namespace Drive{
       //Sets controller inputs to eaisily read variables
     int LeftVirtJoy=MController.getAnalog(okapi::ControllerAnalog::leftY)*200;
     int RightVirtJoy=MController.getAnalog(okapi::ControllerAnalog::rightY)*200;
-    int LeftHorJoy=MController.getAnalog(okapi::ControllerAnalog::leftX)*200;
-    int RightHorJoy=MController.getAnalog(okapi::ControllerAnalog::rightX)*200;
+    int LeftHorJoy=MController.getAnalog(okapi::ControllerAnalog::leftX)*-200;
+    int RightHorJoy=MController.getAnalog(okapi::ControllerAnalog::rightX)*-200;
       //Create a deadzone for anolog sticks to work from to prevent unnessisary drift and accidental bump
     if(std::abs(LeftVirtJoy)<5)    LeftVirtJoy=0;
     if(std::abs(RightVirtJoy)<5)    RightVirtJoy=0;
@@ -56,9 +56,9 @@ namespace Drive{
       }
     }
       //Feature that aids driver when rolling pins by backing into the wall to straiten while rolling
-    else if(Roller::Roll.isPressed() && Roller::RollerMotor.getPosition()>420){
-      setDriveVel(50,50);
-    }
+    // else if(Roller::Roll.isPressed() && Roller::RollerMotor.getPosition()>420){
+    //   setDriveVel(50,50);
+    // }
       //Last loop before disableing; used to release drivemanualcontrol
     else setMechDriveVel(0,0,0,0);
   }

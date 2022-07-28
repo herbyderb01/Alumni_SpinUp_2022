@@ -27,7 +27,7 @@ namespace Roller{
 namespace Loader{
   okapi::ControllerButton Up = MController[okapi::ControllerDigital::L1];
   okapi::ControllerButton Down = MController[okapi::ControllerDigital::L2];
-  okapi::ControllerButton CapPush = MController[okapi::ControllerDigital::up];
+  //okapi::ControllerButton CapPush = MController[okapi::ControllerDigital::up];
 }
 namespace Puncher{
   okapi::ControllerButton Fire = MController[okapi::ControllerDigital::R2];

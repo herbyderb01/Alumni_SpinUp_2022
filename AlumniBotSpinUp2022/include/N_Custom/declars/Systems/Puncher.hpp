@@ -2,7 +2,7 @@
 #define Puncher_HPP
 
 namespace Puncher{
-  void PuncherManualContTask(void*PuncherFunctionTask);
+  void PuncherManualContTask(/*void*PuncherFunctionTask*/);
 }
 
 #endif /* end of include guard: Puncher_HPP */

@@ -46,6 +46,9 @@
 
 /*Puncher vars*/
 	bool AutoPuncherFiring = false;
+	bool readyToPunch = false;
+	bool firstUp = true;
+	bool flyAtSpeed = false;
 
 /*Ram Rod vars*/
 	bool RamEnabledBtnPressed;

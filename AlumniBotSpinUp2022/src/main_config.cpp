@@ -5,13 +5,13 @@
 
 //Drive Motors Init
 namespace Drive{
-  okapi::Motor LeftFMotor(12,false,okapi::AbstractMotor::gearset::green,
+  okapi::Motor LeftFMotor(1,false,okapi::AbstractMotor::gearset::green,
     okapi::AbstractMotor::encoderUnits::degrees);
-  okapi::Motor LeftBMotor(13,false,okapi::AbstractMotor::gearset::green,
+  okapi::Motor LeftBMotor(2,false,okapi::AbstractMotor::gearset::green,
     okapi::AbstractMotor::encoderUnits::degrees);
-  okapi::Motor RightFMotor(11,true,okapi::AbstractMotor::gearset::green,
+  okapi::Motor RightFMotor(3,true,okapi::AbstractMotor::gearset::green,
     okapi::AbstractMotor::encoderUnits::degrees);
-  okapi::Motor RightBMotor(14,true,okapi::AbstractMotor::gearset::green,
+  okapi::Motor RightBMotor(4,true,okapi::AbstractMotor::gearset::green,
     okapi::AbstractMotor::encoderUnits::degrees);
   Ramping LFDR(1,4,200);
   Ramping RFDR(1,4,200);
@@ -20,29 +20,29 @@ namespace Drive{
 }
 //Loader Piston Init
 namespace Loader{
-  okapi::Motor LoaderMotor(3,true,okapi::AbstractMotor::gearset::red,
+  okapi::Motor LoaderMotor(5,true,okapi::AbstractMotor::gearset::red,
     okapi::AbstractMotor::encoderUnits::degrees);
 }
 //Loader Piston Init
 namespace Puncher{
-  pros::ADIDigitalOut PuncherPiston ('B');
+  pros::ADIDigitalOut PuncherPiston ('A');
 }
 //FlyWheel Motors Init
 namespace FlyWheel{
-  okapi::Motor FlyWheelMotorR(1,true,okapi::AbstractMotor::gearset::blue,
+  okapi::Motor FlyWheelMotorR(7,true,okapi::AbstractMotor::gearset::blue,
     okapi::AbstractMotor::encoderUnits::degrees);
-  okapi::Motor FlyWheelMotorL(2,true,okapi::AbstractMotor::gearset::blue,
+  okapi::Motor FlyWheelMotorL(8,true,okapi::AbstractMotor::gearset::blue,
     okapi::AbstractMotor::encoderUnits::degrees);
   pros::ADIAnalogIn ChargeLightSensor(3);
 }
 //Roller Motors Init
 namespace Roller{
-  okapi::Motor RollerMotor(17,false,okapi::AbstractMotor::gearset::green,
+  okapi::Motor RollerMotor(20,false,okapi::AbstractMotor::gearset::green,
     okapi::AbstractMotor::encoderUnits::degrees);
 }
 //Intake Motors Init
 namespace Intake{
-  okapi::Motor IntakeMotor(16,false,okapi::AbstractMotor::gearset::blue,
+  okapi::Motor IntakeMotor(10,false,okapi::AbstractMotor::gearset::blue,
     okapi::AbstractMotor::encoderUnits::degrees);
   pros::ADIAnalogIn BallSenseBottom(6);
   pros::ADIAnalogIn BallSenseTop(4);

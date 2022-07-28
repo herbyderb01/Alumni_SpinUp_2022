@@ -1,4 +1,5 @@
 #include "N_Custom/cont_config.hpp"
+#include "N_Custom/declars/vars.hpp"
 #include "main.h"
 #include "N_Custom/declars/Systems/Drive.hpp"
 
@@ -17,23 +18,36 @@ namespace FlyWheel{
 
   void FlyWheelCont(){
       //Allows driver to fire only in Ball mode
-    
+    int curValue;
+    int off = 0;
+    int low = 300;
+    int med = 450;
+    int high = 600;
+    int flywheelThreshold = 50;
+
     if(Off.isPressed() && FlyWheelOn) {//when it is pressed turn on 
       FlyWheelOn = false;
-      setFlyWheelVel(0);
+      setFlyWheelVel(off);
+      curValue = off;
     }
 
     else if(Low.isPressed()){ //when it is pressed turn to low 
         FlyWheelOn = true;
-        setFlyWheelVel(198);
+        setFlyWheelVel(low);
+      curValue = low;
     }
     else if(Medium.isPressed()){ //when it is pressed turn to low 
         FlyWheelOn = true;
-        setFlyWheelVel(396);
+        setFlyWheelVel(med);
+        curValue = med;
     }
     else if(High.isPressed()){ //when it is pressed turn to low 
         FlyWheelOn = true;
-        setFlyWheelVel(600);
+        setFlyWheelVel(high);
+        curValue = high;
     }
+
+    if (curValue-flywheelThreshold < curValue < curValue+flywheelThreshold) flyAtSpeed = true;
+    if (curValue == off) flyAtSpeed = false;
   }
 }
