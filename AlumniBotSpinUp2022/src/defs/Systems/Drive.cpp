@@ -37,8 +37,8 @@ namespace Drive{
       //Sets controller inputs to eaisily read variables
     int LeftVirtJoy=MController.getAnalog(okapi::ControllerAnalog::leftY)*200;
     int RightVirtJoy=MController.getAnalog(okapi::ControllerAnalog::rightY)*200;
-    int LeftHorJoy=MController.getAnalog(okapi::ControllerAnalog::leftX)*-200;
-    int RightHorJoy=MController.getAnalog(okapi::ControllerAnalog::rightX)*-200;
+    int LeftHorJoy=MController.getAnalog(okapi::ControllerAnalog::leftX)*200;
+    int RightHorJoy=MController.getAnalog(okapi::ControllerAnalog::rightX)*200;
       //Create a deadzone for anolog sticks to work from to prevent unnessisary drift and accidental bump
     if(std::abs(LeftVirtJoy)<5)    LeftVirtJoy=0;
     if(std::abs(RightVirtJoy)<5)    RightVirtJoy=0;

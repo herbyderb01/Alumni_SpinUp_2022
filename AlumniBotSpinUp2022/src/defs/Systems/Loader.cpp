@@ -8,7 +8,7 @@ namespace Loader{ //Inside Loader namespace
     if(Puncher::Fire.isPressed()){
       //if (double(-160) > LoaderMotor.getPosition() > double(-175)) readyToPunch = true;
       if(firstUp) {
-        LoaderMotor.moveAbsolute(-170, 100);
+        LoaderMotor.moveAbsolute(-150, 100);
         pros::delay(500);
         readyToPunch = true;
         firstUp = false;
